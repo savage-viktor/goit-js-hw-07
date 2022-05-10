@@ -1,13 +1,12 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
-console.log(galleryItems);
 
 const galleryDivRef = document.querySelector(".gallery")
 
 galleryDivRef.innerHTML = galleryItems.map(({ preview, original, description }) => {
 
-    return `<div class="gallery__item" >
+    return `<div class="gallery__item" href="${original}" >
         <a class="gallery__link" >
             <img
                 class="gallery__image"
@@ -20,6 +19,7 @@ galleryDivRef.innerHTML = galleryItems.map(({ preview, original, description }) 
 }).join("")
 
 function openModalBigImg(event) {
+    event.preventDefault();
     if (event.target === galleryDivRef) {
         return
     }
